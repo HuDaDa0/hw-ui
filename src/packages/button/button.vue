@@ -34,6 +34,16 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: 'left',
+      validator (position) {
+        if (!['left', 'right'].includes(position)) {
+          throw new Error('position 只能是 left 或者 right')
+        }
+        return true
+      }
     }
   },
   setup (props) {
@@ -41,7 +51,8 @@ export default {
       'hw-button',
       `hw-button-${props.type}`,
       props.loading ? 'is-loading' : '',
-      props.disabled ? 'is-disabled' : ''
+      props.disabled ? 'is-disabled' : '',
+      `hw-button-${props.position}`
     ])
 
     return {

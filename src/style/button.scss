@@ -20,6 +20,9 @@ $color-list-active: (
 @include blockquote(button) {
   @include status($color-list);
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
   border-radius: $border-radius;
   font-size: $font-size;
@@ -29,6 +32,25 @@ $color-list-active: (
   outline: none;
   vertical-align: middle;
   cursor: pointer;
+
+  &.hw-button-left {
+    .icon {
+      order: 1;
+      margin-right: 5px;
+    }
+    span {
+      order: 2;
+    }
+  }
+  &.hw-button-right {
+    .icon {
+      order: 2;
+      margin-left: 5px;
+    }
+    span {
+      order: 1;
+    }
+  }
 
   &.is-loading {
     position: relative;
@@ -46,7 +68,6 @@ $color-list-active: (
     background-color: hsla(0,0%,100%,.35);
   }
   .icon {
-    margin-right: 5px;
     color: #ffffff;
   }
 

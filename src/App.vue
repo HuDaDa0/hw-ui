@@ -1,9 +1,6 @@
 <template>
   <div>
-    <!-- <hw-button></hw-button>
-    <hw-button-group></hw-button-group>
-    <hw-icon></hw-icon> -->
- <br />
+    <br />
     <br />
     <Button></Button>
 
@@ -11,18 +8,24 @@
     <br />
 
     <Icon></Icon>
+
+    <br />
+    <br />
+    <ButtonGroup></ButtonGroup>
   </div>
 </template>
 
 <script>
 import Button from './examples/button'
 import Icon from './examples/icon'
+import ButtonGroup from './examples/button-group'
 
 export default {
   name: 'App',
   components: {
     Button,
-    Icon
+    Icon,
+    ButtonGroup
   }
 }
 </script>
