@@ -1,0 +1,91 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+
+$color-list: (
+  primary: $primary,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  info: $info
+);
+
+$color-list-active: (
+  primary: $primary-active,
+  success: $success-active,
+  warning: $warning-active,
+  danger: $danger-active,
+  info: $info-active
+);
+
+@include blockquote(button) {
+  @include status($color-list);
+
+  color: #ffffff;
+  border-radius: $border-radius;
+  font-size: $font-size;
+  text-align: center;
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+  }
+  &.is-loading:before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background-color: hsla(0,0%,100%,.35);
+  }
+  .icon {
+    margin-right: 5px;
+    color: #ffffff;
+  }
+
+  @keyframes rotateLoading {
+    from {
+      transform-origin: 50% 50%;
+      transform: rotate(0deg);
+    }
+    to {
+      transform-origin: 50% 50%;
+      transform: rotate(360deg);
+    }
+  }
+  .loading {
+    animation: rotateLoading 1.5s linear infinite;
+  }
+  &.is-disabled {
+    position: relative;
+  }
+
+  &.is-disabled::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background-color: hsla(0, 0%, 100%, .35);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+  &:disabled * {
+    pointer-events: none;
+  }
+
+  &:active {
+    @include status($color-list-active);
+  }
+}
