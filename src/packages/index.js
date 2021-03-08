@@ -1,11 +1,15 @@
 import Button from './button/index.js'
 import ButtonGroup from './button-group/index.js'
 import Icon from './icon/index.js'
+import Carousel from './carousel/index.js'
+import CarouselItem from './carousel-item/index.js'
 
 const plugins = [
   Button,
   ButtonGroup,
-  Icon
+  Icon,
+  Carousel,
+  CarouselItem
 ]
 
 const install = (app) => {

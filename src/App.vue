@@ -12,6 +12,10 @@
     <br />
     <br />
     <ButtonGroup></ButtonGroup>
+
+    <br>
+    <br>
+    <Carousel></Carousel>
   </div>
 </template>
 
@@ -19,13 +23,15 @@
 import Button from './examples/button'
 import Icon from './examples/icon'
 import ButtonGroup from './examples/button-group'
+import Carousel from './examples/carousel'
 
 export default {
   name: 'App',
   components: {
     Button,
     Icon,
-    ButtonGroup
+    ButtonGroup,
+    Carousel
   }
 }
 </script>
