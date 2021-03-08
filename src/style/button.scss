@@ -31,24 +31,25 @@ $color-list-active: (
   border: none;
   outline: none;
   vertical-align: middle;
+  line-height: 1;
   cursor: pointer;
 
   &.hw-button-left {
     .icon {
       order: 1;
-      margin-right: 5px;
     }
     span {
       order: 2;
+      margin-left: 5px;
     }
   }
   &.hw-button-right {
     .icon {
       order: 2;
-      margin-left: 5px;
     }
     span {
       order: 1;
+      margin-right: 5px;
     }
   }
 
