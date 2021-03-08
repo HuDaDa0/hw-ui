@@ -52,7 +52,7 @@ export default {
       `hw-button-${props.type}`,
       props.loading ? 'is-loading' : '',
       props.disabled ? 'is-disabled' : '',
-      `hw-button-${props.position}`
+      (props.icon || props.loading) ? `hw-button-${props.position}` : ''
     ])
 
     return {
