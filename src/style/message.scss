@@ -1,0 +1,30 @@
+.hw-message {
+  min-width: 380px;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  transition: opacity .3s,transform .4s,top .4s;
+  padding: 15px 15px 15px 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.hw-message-success {
+  background-color: #f0f9eb;
+  border-color: #e1f3d8;
+}
+.hw-message-warning {
+  background-color: #fdf6ec;
+  border-color: #faecd8;
+}
+.hw-message-info {
+  background-color: #edf2fc;
+  border-color: #EBEEF5
+}
+.hw-message-error {
+  background-color: #fef0f0;
+  border-color: #fde2e2;
+}

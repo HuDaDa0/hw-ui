@@ -16,6 +16,10 @@
     <br>
     <br>
     <Carousel></Carousel>
+
+    <br>
+    <br>
+    <Message></Message>
   </div>
 </template>
 
@@ -24,6 +28,7 @@ import Button from './examples/button'
 import Icon from './examples/icon'
 import ButtonGroup from './examples/button-group'
 import Carousel from './examples/carousel'
+import Message from './examples/message'
 
 export default {
   name: 'App',
@@ -31,7 +36,8 @@ export default {
     Button,
     Icon,
     ButtonGroup,
-    Carousel
+    Carousel,
+    Message
   }
 }
 </script>

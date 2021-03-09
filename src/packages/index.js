@@ -3,6 +3,7 @@ import ButtonGroup from './button-group/index.js'
 import Icon from './icon/index.js'
 import Carousel from './carousel/index.js'
 import CarouselItem from './carousel-item/index.js'
+import Message from './message/index.js'
 
 const plugins = [
   Button,
@@ -18,4 +19,13 @@ const install = (app) => {
 
 export default {
   install
+}
+
+export {
+  Button,
+  ButtonGroup,
+  Icon,
+  Carousel,
+  CarouselItem,
+  Message
 }
