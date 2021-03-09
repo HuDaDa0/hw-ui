@@ -1,6 +1,6 @@
 <template>
   <div>
-    Carousel-Item
+    <slot></slot>
   </div>
 </template>
 
