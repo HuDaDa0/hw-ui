@@ -39,6 +39,9 @@
     <p v-if="show">hello</p>
   </transition>
 
+  <br>
+  <br>
+  <Tree></Tree>
   </div>
 </template>
 
@@ -48,6 +51,7 @@ import Icon from './examples/icon'
 import ButtonGroup from './examples/button-group'
 import Carousel from './examples/carousel'
 import Message from './examples/message'
+import Tree from './examples/tree'
 
 export default {
   name: 'App',
@@ -56,7 +60,8 @@ export default {
     Icon,
     ButtonGroup,
     Carousel,
-    Message
+    Message,
+    Tree
   },
   data () {
     return {
