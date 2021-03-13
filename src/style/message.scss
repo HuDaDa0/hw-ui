@@ -3,7 +3,7 @@
   box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
-  transition: opacity .3s,transform .4s,top .4s;
+  
   padding: 15px 15px 15px 20px;
   display: flex;
   align-items: center;
@@ -28,3 +28,16 @@
   background-color: #fef0f0;
   border-color: #fde2e2;
 }
+
+.hw-message-enter-active, .hw-message-leave-active {
+  transition: opacity .3s,transform .4s,top .4s;
+}
+
+.hw-message-enter-from, .hw-message-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.hw-message-enter-to, .hw-message-leave {
+  opacity: 1;
+}
+// .hw-message-leave-active {}

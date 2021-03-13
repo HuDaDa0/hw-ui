@@ -1,9 +1,11 @@
 <template>
-  <div :class="classes">{{ message }}</div>
+  <transition name="hw-message"  @after-leave="handleAfterLeave">
+    <div v-show="visible" :class="classes">{{ message }}</div>
+  </transition>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref, onMounted, getCurrentInstance } from 'vue'
 export default {
   props: {
     type: {
@@ -20,8 +22,24 @@ export default {
       `hw-message-${props.type}`
     ])
 
+    const visible = ref(true)
+
+    const handleAfterLeave = () => {
+      const app = getCurrentInstance()
+      const ele = app.ctx.$el
+      ele.parentNode.removeChild(ele)
+      // this.$destroy(true)
+      // this.$el.parentNode.removeChild(this.$el)
+    }
+    onMounted(() => {
+      const app = getCurrentInstance()
+      console.log(app)
+    })
+
     return {
-      classes
+      classes,
+      visible,
+      handleAfterLeave
     }
   }
 }
