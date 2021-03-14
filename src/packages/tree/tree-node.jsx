@@ -1,4 +1,4 @@
-import { toRefs, computed } from 'vue'
+import { toRefs, computed, inject } from 'vue'
 
 export default {
   name: 'HwTreeNode',
@@ -10,6 +10,7 @@ export default {
   },
   setup (props) {
     const { data } = toRefs(props)
+    const { treeMethods } = inject('TREE_PROVIDER')
 
     const showArrow = computed(() => {
       return data.value.children && data.value.children.length > 0
@@ -29,6 +30,8 @@ export default {
       handleCheck (e) {
         e.stopPropagation()
         data.value.checked = !data.value.checked
+        treeMethods.updateTreeDown(data.value, data.value.checked)
+        treeMethods.updateTreeUp(data.value, data.value.checked)
       }
     }
 

@@ -1,9 +1,12 @@
 <template>
-  <hw-tree :data="treeData"></hw-tree>
+  <hw-tree :data="treeData" ref="tree"></hw-tree>
+
+  <br>
+  <button @click="getCheckNodes">点击获取内容</button>
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs, ref } from 'vue'
 
 export default {
   setup () {
@@ -27,9 +30,16 @@ export default {
       ]
     })
 
-    return {
-      ...toRefs(state)
+    const tree = ref(null)
 
+    function getCheckNodes () {
+      console.log(tree.value.getCheckNodes())
+    }
+
+    return {
+      ...toRefs(state),
+      tree,
+      getCheckNodes
     }
   }
 }
