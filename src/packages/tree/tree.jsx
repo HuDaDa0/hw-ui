@@ -37,7 +37,8 @@ export default {
         }
       },
       updateTreeUp (node, checked) {
-        const parentNode = node.parent // 获取当前元素的 父节点
+        // 获取当前元素的 父节点
+        const parentNode = flatMap[node.key].parent
         if (!parentNode) return
 
         if (checked) {
