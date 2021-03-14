@@ -1,4 +1,32 @@
 @import './common/var.scss';
 @import './mixins/mixins.scss';
 
-@include blockquote(tree) {}
+@include blockquote(tree) {
+  margin-left: 100px;
+
+  .hw-tree-node {
+    &.hw-tree-no-expand {
+      .hw-icon {
+        visibility: hidden;
+      }
+    }
+    .hw-icon {
+      transition: all .3s;
+    }
+    .arrow-down {
+      transform: rotate(90deg);
+    }
+  }
+
+  .hw-tree-label {
+    color: #333333;
+    .iconfont {
+      font-size: 16px;
+      color: #333333;
+      font-weight: bold;
+    }
+  }
+  .hw-tree-list {
+    padding-left: 20px;
+  }
+}

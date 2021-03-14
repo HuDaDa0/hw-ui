@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('//at.alicdn.com/t/font_2404683_su7oxwu7sy.css');
+@import url('//at.alicdn.com/t/font_2404683_oifqssukdj.css');
 
 .test-box {
   width: 180px;
