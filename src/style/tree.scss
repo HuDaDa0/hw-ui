@@ -25,6 +25,17 @@
       color: #333333;
       font-weight: bold;
     }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .icon-loading {
+      animation: rotate 1.5s linear infinite;
+    }
   }
   .hw-tree-list {
     padding-left: 20px;

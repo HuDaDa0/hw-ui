@@ -52,8 +52,11 @@ export default {
     return () => (
       <div class={classes.value}>
         <p className="hw-tree-label" onClick={methods.handleExpand}>
-          <hw-icon icon="arrow-right" class={ data.value.expend && 'arrow-down' }></hw-icon>
-          { data.value.loading && <hw-icon icon="loading"></hw-icon>}
+          {
+            data.value.loading
+              ? <hw-icon icon="loading"></hw-icon>
+              : <hw-icon icon="arrow-right" class={ data.value.expend && 'arrow-down' }></hw-icon>
+          }
           <input type="checkbox" style="vertical-align: middle;" checked={data.value.checked} onClick={methods.handleCheck} />
           <span >{ slot ? slot(data.value) : data.value.name }</span>
         </p>
