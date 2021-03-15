@@ -1,4 +1,4 @@
-import { toRefs, computed, inject } from 'vue'
+import { toRefs, computed, inject, ref } from 'vue'
 
 export default {
   name: 'HwTreeNode',
@@ -10,10 +10,11 @@ export default {
   },
   setup (props) {
     const { data } = toRefs(props)
-    const { treeMethods, slot } = inject('TREE_PROVIDER')
+    const { treeMethods, slot, load } = inject('TREE_PROVIDER')
 
+    const isLoaded = ref(false) // 判断是否加载完毕
     const showArrow = computed(() => {
-      return data.value.children && data.value.children.length > 0
+      return (data.value.children && data.value.children.length > 0) || (load && !isLoaded.value)
     })
 
     const classes = computed(() => {
@@ -25,6 +26,19 @@ export default {
 
     const methods = {
       handleExpand () {
+        if (data.value.children && data.value.children.length === 0) { // 如果没有孩子 或者 孩子为空
+          if (load) { // 有加载方法就进行加载
+            data.value.loading = true
+            load(data.value, (children) => {
+              data.value.children = children
+              data.value.loading = false
+              isLoaded.value = false
+            })
+          }
+        } else {
+          // 加载完毕
+          isLoaded.value = true
+        }
         data.value.expend = !data.value.expend
       },
       handleCheck (e) {
@@ -39,6 +53,7 @@ export default {
       <div class={classes.value}>
         <p className="hw-tree-label" onClick={methods.handleExpand}>
           <hw-icon icon="arrow-right" class={ data.value.expend && 'arrow-down' }></hw-icon>
+          { data.value.loading && <hw-icon icon="loading"></hw-icon>}
           <input type="checkbox" style="vertical-align: middle;" checked={data.value.checked} onClick={methods.handleCheck} />
           <span >{ slot ? slot(data.value) : data.value.name }</span>
         </p>

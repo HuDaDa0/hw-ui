@@ -1,4 +1,4 @@
-import { getCurrentInstance, provide } from 'vue'
+import { getCurrentInstance, provide, watch } from 'vue'
 import TreeNode from './tree-node.jsx'
 import { flattenTree } from './utils.js'
 
@@ -8,6 +8,9 @@ export default {
     data: {
       type: Array,
       default: () => []
+    },
+    load: {
+      type: Function
     }
   },
   components: {
@@ -22,7 +25,11 @@ export default {
       return data.map(item => <hw-tree-node data={item}></hw-tree-node>)
     }
 
-    const flatMap = flattenTree(props.data)
+    let flatMap = flattenTree(props.data)
+
+    watch(props.data, () => {
+      flatMap = flattenTree(props.data)
+    })
 
     const methods = {
       getCheckNodes () {
@@ -54,7 +61,8 @@ export default {
     }
     provide('TREE_PROVIDER', {
       treeMethods: methods,
-      slot: context.slots.default
+      slot: context.slots.default,
+      load: props.load
     })
 
     // 将方法绑定要上下文中去，这样从组件外面也可以调用方法

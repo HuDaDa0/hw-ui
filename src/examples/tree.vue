@@ -1,5 +1,5 @@
 <template>
-  <hw-tree :data="treeData" ref="tree">
+  <hw-tree :data="treeData" ref="tree" :load="loadFn">
     <template v-slot="{ name, id }">
       {{ name }} ({{ id }})
     </template>
@@ -19,9 +19,10 @@ export default {
         {
           id: '1',
           name: '菜单1',
-          children: [
-            { id: '1-1', name: '菜单1-1', children: [{ id: '1-1-1', name: '菜单1-1-1' }] }
-          ]
+          children: []
+          // children: [
+          //   { id: '1-1', name: '菜单1-1', children: [{ id: '1-1-1', name: '菜单1-1-1' }] }
+          // ]
         },
         {
           id: '2',
@@ -41,10 +42,25 @@ export default {
       console.log(state)
     }
 
+    function loadFn (data, cb) {
+      if (data.id === '1') {
+        setTimeout(() => {
+          const getData = [{ id: '1-1', name: '菜单1-1', children: [] }]
+          cb(getData)
+        }, 1000)
+      } else if (data.id === '1-1') {
+        setTimeout(() => {
+          const getData = [{ id: '1-1-1', name: '菜单1-1-1' }]
+          cb(getData)
+        }, 1000)
+      }
+    }
+
     return {
       ...toRefs(state),
       tree,
-      getCheckNodes
+      getCheckNodes,
+      loadFn
     }
   }
 }
