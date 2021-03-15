@@ -1,5 +1,9 @@
 <template>
-  <hw-tree :data="treeData" ref="tree"></hw-tree>
+  <hw-tree :data="treeData" ref="tree">
+    <template v-slot="{ name, id }">
+      {{ name }} ({{ id }})
+    </template>
+  </hw-tree>
 
   <br>
   <button @click="getCheckNodes">点击获取内容</button>
@@ -34,6 +38,7 @@ export default {
 
     function getCheckNodes () {
       console.log(tree.value.getCheckNodes())
+      console.log(state)
     }
 
     return {

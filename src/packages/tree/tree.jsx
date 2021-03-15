@@ -13,7 +13,7 @@ export default {
   components: {
     [TreeNode.name]: TreeNode
   },
-  setup (props) {
+  setup (props, context) {
     const renderNode = (data) => {
       if (data && data.length === 0) {
         return <div>暂无数据</div>
@@ -52,9 +52,9 @@ export default {
         methods.updateTreeUp(parentNode, checked)
       }
     }
-
     provide('TREE_PROVIDER', {
-      treeMethods: methods
+      treeMethods: methods,
+      slot: context.slots.default
     })
 
     // 将方法绑定要上下文中去，这样从组件外面也可以调用方法
