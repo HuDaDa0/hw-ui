@@ -1,5 +1,5 @@
 <template>
-  <hw-tree :data="treeData" ref="tree" :load="loadFn">
+  <hw-tree :data="treeData" ref="tree" :load="loadFn" draggable>
     <template v-slot="{ name, id }">
       {{ name }} ({{ id }})
     </template>

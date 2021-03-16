@@ -2,6 +2,7 @@
 @import './mixins/mixins.scss';
 
 @include blockquote(tree) {
+  position: relative;
   margin-left: 100px;
 
   .hw-tree-node {
@@ -16,6 +17,21 @@
     .arrow-down {
       transform: rotate(90deg);
     }
+  }
+  .hw-tree-draggable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: element;
+    cursor: pointer;
+  }
+  .hw-tree-indicator{
+    position: absolute;
+    height: 1px;
+    right:0;
+    left:0;
+    background-color:#409eff;
   }
 
   .hw-tree-label {
