@@ -3,7 +3,6 @@
 
 @include blockquote(tree) {
   position: relative;
-  margin-left: 100px;
 
   .hw-tree-node {
     &.hw-tree-no-expand {
