@@ -9,7 +9,7 @@ export default {
 export const tree = () => ({
   components: { HwTree },
   template: `
-    <hw-tree :data="treeData" draggable>
+    <hw-tree :data="treeData">
       <template v-slot="{ name, id }">
         {{ name }} ({{ id }})
       </template>
