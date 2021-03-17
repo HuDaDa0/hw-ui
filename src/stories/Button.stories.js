@@ -1,19 +1,19 @@
-import Button from '../packages/button/index.js'
+import HwButton from '../packages/button/index.js'
 
 export default {
   title: '组件/Button Component',
-  component: Button
+  component: HwButton
 }
 
 export const button = () => ({
-  components: { Button },
+  components: { HwButton },
   template: `
     <div>
-      <Button type="primary">主要的</Button>
-      <Button type="success">成功的</Button>
-      <Button type="warning">警告的</Button>
-      <Button type="danger">危险的</Button>
-      <Button type="info">信息的</Button>
+      <hw-button type="primary">主要的</hw-button>
+      <hw-button type="success">成功的</hw-button>
+      <hw-button type="warning">警告的</hw-button>
+      <hw-button type="danger">危险的</hw-button>
+      <hw-button type="info">信息的</hw-button>
     </div>
   `
 })
