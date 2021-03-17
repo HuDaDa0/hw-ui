@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="show">点击一下了</button>
+    <hw-button type="success" @click="show">点击一下了</hw-button>
   </div>
 </template>
 
