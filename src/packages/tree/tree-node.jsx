@@ -1,4 +1,5 @@
 import { toRefs, computed, inject, ref, getCurrentInstance } from 'vue'
+import HwIcon from '../icon/index'
 
 export default {
   name: 'HwTreeNode',
@@ -7,6 +8,9 @@ export default {
       type: Object,
       default: () => {}
     }
+  },
+  components: {
+    [HwIcon.name]: HwIcon
   },
   setup (props) {
     const { data } = toRefs(props)
